@@ -10,9 +10,7 @@ pipeline {
         
         stage('Checkout'){
            steps {
-                git credentialsId: 'f87a34a8-0e09-45e7-b9cf-6dc68feac670', 
-                url: 'https://github.com/iam-veeramalla/cicd-end-to-end',
-                branch: 'main'
+              git branch: 'main', credentialsId: 'Gitpassword', url: 'https://github.com/shivasable291987/cicd-end-to-end.git'
            }
         }
 
@@ -21,7 +19,7 @@ pipeline {
                 script{
                     sh '''
                     echo 'Buid Docker Image'
-                    docker build -t abhishekf5/cicd-e2e:${BUILD_NUMBER} .
+                    docker build -t shivsable29/cicdend2end:${BUILD_NUMBER} .
                     '''
                 }
             }
@@ -32,7 +30,7 @@ pipeline {
                 script{
                     sh '''
                     echo 'Push to Repo'
-                    docker push abhishekf5/cicd-e2e:${BUILD_NUMBER}
+                    docker push shivsable29/cicdend2end:${BUILD_NUMBER}
                     '''
                 }
             }
