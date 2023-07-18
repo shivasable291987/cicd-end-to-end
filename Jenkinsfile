@@ -27,7 +27,7 @@ pipeline {
 
         stage('Push the artifacts'){
            steps{
-               withDockerRegistry(credentialsId: 'dockerhub', url: 'https://hub.docker.com/repository/docker/shivsable29/cicdend2end/') {
+               withDockerRegistry(credentialsId: 'dockerhub', url: 'https://hub.docker.com/') {
     // some block
 
                 script{
