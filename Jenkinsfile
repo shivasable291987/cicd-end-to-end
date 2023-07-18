@@ -27,12 +27,16 @@ pipeline {
 
         stage('Push the artifacts'){
            steps{
+               withDockerRegistry(credentialsId: 'dockerhub', url: 'https://hub.docker.com/repository/docker/shivsable29/cicdend2end/') {
+    // some block
+
                 script{
                     sh '''
                     echo 'Push to Repo'
                     docker push shivsable29/cicdend2end:${BUILD_NUMBER}
                     '''
                 }
+           }
             }
         }
         
