@@ -27,7 +27,7 @@ pipeline {
 
         stage('Push the artifacts'){
            steps{
-               withDockerRegistry(credentialsId: 'dockerhub') {
+              withDockerRegistry(credentialsId: 'dockerhub', url: 'https://hub.docker.com/') {
     // some block
 
                 script{
